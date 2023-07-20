@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Repositories;
 using Infra.Context;
+using Infra.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Repositories
@@ -17,39 +18,94 @@ namespace Infra.Repositories
         }
 
 
-        public Task<bool> AddAsync(T entity)
+        public async Task<bool> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await dbSet.AddAsync(entity);
+                return await SaveAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationDbException(ex.Message);
+            }
         }
 
-        public Task<bool> DeleteAsync(T entity)
+        public async Task<bool> DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbSet.Remove(entity);
+                return await SaveAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationDbException(ex.Message);
+            }
         }
 
-        public Task<bool> DeleteByIdAsync(int id)
+        public async Task<bool> DeleteByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = await GetByIdAsync(id);
+                dbSet.Remove(entity);
+                return await SaveAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationDbException(ex.Message);
+            }
         }
 
-        public Task<IList<T>> GetAllAsync(int id)
+        public async Task<IList<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await dbSet.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationDbException(ex.Message);
+            }
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = await dbSet.FirstOrDefaultAsync(_ => _.Id == id);
+
+                if (entity == null)
+                {
+                    throw new NotFoundException($"Not found this {dbSet.GetType()}");
+                }
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationDbException(ex.Message);
+            }
         }
 
-        public Task<bool> SaveAsync()
+        public async Task<bool> SaveAsync()
         {
-            throw new NotImplementedException();
+            var saved = await _dbContext.SaveChangesAsync() == 1 ? true : false;
+            return saved;
         }
 
-        public Task<bool> UpdateAsync(T entity, int id)
+        public async Task<bool> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dbSet.Update(entity);
+                return await SaveAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationDbException(ex.Message);
+            }
         }
     }
 }

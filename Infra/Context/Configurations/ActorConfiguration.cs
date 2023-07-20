@@ -13,7 +13,5 @@ public class ActorConfiguration : IEntityTypeConfiguration<Actor>
         builder.Property(_ => _.Age).IsRequired();
 
         builder.Ignore(_ => _.FilmActors);
-
-        builder.HasAlternateKey(_ => _.Name);
     }
 }

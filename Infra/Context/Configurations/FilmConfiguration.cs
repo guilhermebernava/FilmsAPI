@@ -12,12 +12,10 @@ public class FilmConfiguration : IEntityTypeConfiguration<Film>
         builder.Property(_ => _.Title).HasColumnType("varchar(150)").IsRequired();
         builder.Property(_ => _.Description).IsRequired();
         builder.Property(_ => _.Duration).IsRequired();
-        builder.Property(_ => _.ReleaseDate).IsRequired();
+        builder.Property(_ => _.ReleaseDate).HasColumnType("datetime").IsRequired();
         builder.Property(_ => _.Score);
 
         builder.Ignore(_ => _.FilmActors);
         builder.Ignore(_ => _.FilmGenres);
-
-        builder.HasAlternateKey(_ => _.Title);
     }
 }

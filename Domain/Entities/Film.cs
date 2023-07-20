@@ -19,6 +19,6 @@ public class Film : Entity
     public string Description { get; set; }
     public DateTime ReleaseDate { get; set; }
 
-    public Collection<Genre> Genres { get; set; }
-    public Collection<Actor> Actors { get; set; }
+    public ICollection<FilmActor> FilmActors { get; private set; }
+    public ICollection<FilmGenre> FilmGenres { get; private set; }
 }

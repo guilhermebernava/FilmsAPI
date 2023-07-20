@@ -7,8 +7,7 @@ public class GenreValidation : AbstractValidator<Genre>
 {
     public GenreValidation()
     {
-        RuleFor(x => x.Id).NotEmpty().WithMessage("Id can not be null");
         RuleFor(x => x.Name).NotEmpty().WithMessage("Genre can not be null");
-        RuleFor(x => x.Name).MinimumLength(4).WithMessage("Minimum 4 letters for a genre");
+        RuleFor(x => x.Name).MinimumLength(2).WithMessage("Minimum 2 letters for a genre");
     }
 }

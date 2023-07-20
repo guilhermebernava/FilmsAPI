@@ -2,9 +2,10 @@
 
 public class Actor : Entity
 {
-    public Actor(string name)
+    public Actor(string name,int age)
     {
         Name = name;
+        Age = age;
     }
 
     public string Name { get; set; }

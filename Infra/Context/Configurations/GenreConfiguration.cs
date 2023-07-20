@@ -12,6 +12,5 @@ public class GenreConfiguration : IEntityTypeConfiguration<Genre>
         builder.Property(_ => _.Name).HasColumnType("varchar(50)").IsRequired();
 
         builder.Ignore(_ => _.FilmGenres);
-        builder.HasAlternateKey(_ => _.Name);
     }
 }
