@@ -8,7 +8,7 @@ namespace Infra.Repositories
 {
     public class Repository<T> : IRepository<T> where T : Entity
     {
-        private ApplicationDbContext _dbContext;
+        public ApplicationDbContext _dbContext;
         public DbSet<T> dbSet { get; private set; }
 
         public Repository(ApplicationDbContext dbContext)
@@ -18,7 +18,7 @@ namespace Infra.Repositories
         }
 
 
-        public async Task<bool> AddAsync(T entity)
+        public  async Task<bool> AddAsync(T entity)
         {
             try
             {
