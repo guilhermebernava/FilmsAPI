@@ -73,3 +73,5 @@ C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\FilmsAPI\obj\Debug\net6.0\F
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\FilmsAPI\obj\Debug\net6.0\ref\FilmsAPI.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\FilmsAPI\bin\Debug\net6.0\Humanizer.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\FilmsAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\FilmsAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\FilmsAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

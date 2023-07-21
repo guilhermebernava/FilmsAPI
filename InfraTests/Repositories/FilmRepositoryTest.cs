@@ -19,7 +19,6 @@ public class FilmRepositoryTest
         var genre = new Genre("Horror");
         await ActorRepository.AddAsync(actor);
         await GenreRepository.AddAsync(genre);
-
         var savedFilm = await Repository.AddFilmWithActorsAndGenresAsync(new Film("Teste", 90, 7.0, "Description", DateTime.Now), new List<Actor>() { actor }, new List<Genre>() { genre });
 
         Assert.True(savedFilm);

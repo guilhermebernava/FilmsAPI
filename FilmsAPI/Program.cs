@@ -1,3 +1,4 @@
+using FilmsAPI;
 using Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationDbContext(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddRepositories();
+builder.Services.AddServices();
+builder.Services.AddAutoMapper(typeof(AutoMapperConfiguration));
 
 var app = builder.Build();
 

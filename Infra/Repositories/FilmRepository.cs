@@ -109,8 +109,11 @@ public class FilmRepository : Repository<Film>, IFilmRepository
 
                 if (genreEntity == null)
                 {
-                    throw new ApplicationDbException($"This genreEntity is not in DB - {genre.Name}");
+                    await genreDbSet.AddAsync(genre);
+                    await SaveAsync();
+                    genreEntity = await genreDbSet.FirstAsync(_ => _.Name == genre.Name);
                 }
+
                 await filmGenresDbSet.AddAsync(new FilmGenre() { Genre = genreEntity, Film = filmEntity });
                 await SaveAsync();
             }
@@ -130,7 +133,9 @@ public class FilmRepository : Repository<Film>, IFilmRepository
 
                 if (actorEntity == null)
                 {
-                    throw new ApplicationDbException($"This actor is not in DB - {actor.Name}");
+                    await actorDbSet.AddAsync(actor);
+                    await SaveAsync();
+                   actorEntity =  await actorDbSet.FirstAsync(_ => _.Name == actor.Name && _.Age == actor.Age);
                 }
                 await filmActrosDbSet.AddAsync(new FilmActor() { Actor = actorEntity, Film = filmEntity });
                 await SaveAsync();
