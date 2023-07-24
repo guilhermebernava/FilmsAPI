@@ -8,19 +8,11 @@ namespace FilmsAPI.Controllers;
 [Route("[controller]")]
 public class FilmController : ControllerBase
 {
-    private readonly IServiceLocator _serviceLocator;
-
-    public FilmController(IServiceLocator serviceLocator)
-    {
-        _serviceLocator = serviceLocator;
-    }
 
     [HttpPost]
-    public async Task<IActionResult> AddAsync([FromBody] FilmModel viewModel)
+    public async Task<IActionResult> AddAsync([FromServices] IFilmCreateService service, [FromBody] FilmModel viewModel)
     {
-        var service = _serviceLocator.GetService<IFilmCreateService>();
         var result = await service.Execute(viewModel);
-
         if (result.IsValid)
         {
             return Ok();
@@ -31,11 +23,9 @@ public class FilmController : ControllerBase
 
     [HttpPost]
     [Route("AddWithActorsAndGenres")]
-    public async Task<IActionResult> AddWithActorsAndGenresAsync([FromBody] FilmWithActorsAndGenresModel viewModel)
+    public async Task<IActionResult> AddWithActorsAndGenresAsync([FromServices] IFilmCreateWithActorsAndGenresService service, [FromBody] FilmWithActorsAndGenresModel viewModel)
     {
-        var service = _serviceLocator.GetService<IFilmCreateWithActorsAndGenresService>();
         var result = await service.Execute(viewModel);
-
         if (result.IsValid)
         {
             return Ok();
@@ -45,19 +35,16 @@ public class FilmController : ControllerBase
 
     [HttpGet]
     [Route("GetAll")]
-    public async Task<IActionResult> GetAllAsync()
+    public async Task<IActionResult> GetAllAsync([FromServices] IFilmGetAllService service)
     {
-        var service = _serviceLocator.GetService<IFilmGetAllService>();
         var result = await service.Execute();
         return Ok(result.Value);
     }
 
     [HttpPut]
-    public async Task<IActionResult> Updatesync([FromBody] FilmUpdateModel viewModel)
+    public async Task<IActionResult> Updatesync([FromServices] IFilmUpdateService service,[FromBody] FilmUpdateModel viewModel)
     {
-        var service = _serviceLocator.GetService<IFilmUpdateService>();
         var result = await service.Execute(viewModel);
-
         if(result.IsValid)
         {
             return Ok();
@@ -66,11 +53,9 @@ public class FilmController : ControllerBase
     }
 
     [HttpDelete]
-    public async Task<IActionResult> DeleteAsync([FromBody] int id)
+    public async Task<IActionResult> DeleteAsync([FromServices] IFilmDeleteService service, [FromBody] int id)
     {
-        var service = _serviceLocator.GetService<IFilmDeleteService>();
         var result = await service.Execute(id);
-
         if (result.IsValid)
         {
             return Ok();
@@ -80,11 +65,9 @@ public class FilmController : ControllerBase
 
     [HttpGet]
     [Route("GetAllWithActorsAndGenres")]
-    public async Task<IActionResult> GetAllWithActorsAndGenresAsync([FromQuery] string? filmName)
+    public async Task<IActionResult> GetAllWithActorsAndGenresAsync([FromServices] IFilmGetWithActorAndGenreService service, [FromQuery] string? filmName)
     {
-        var service = _serviceLocator.GetService<IFilmGetWithActorAndGenreService>();
         var result = await service.Execute(filmName);
-
         if (result.IsValid)
         {
             return Ok(result.Value);
@@ -94,11 +77,9 @@ public class FilmController : ControllerBase
 
     [HttpGet]
     [Route("GetFilmsByGenre")]
-    public async Task<IActionResult> GetFilmsByGenreAsync([FromQuery] string genre)
+    public async Task<IActionResult> GetFilmsByGenreAsync([FromServices] IFilmGetByGenreService service, [FromQuery] string genre)
     {
-        var service = _serviceLocator.GetService<IFilmGetByGenreService>();
         var result = await service.Execute(genre);
-
         if (result.IsValid)
         {
             return Ok(result.Value);
@@ -108,11 +89,9 @@ public class FilmController : ControllerBase
 
     [HttpGet]
     [Route("GetFilmsByActor")]
-    public async Task<IActionResult> GetFilmsByActorAsync([FromQuery] string actorName)
+    public async Task<IActionResult> GetFilmsByActorAsync([FromServices] IFilmGetByActorService service, [FromQuery] string actorName)
     {
-        var service = _serviceLocator.GetService<IFilmGetByActorService>();
         var result = await service.Execute(actorName);
-
         if (result.IsValid)
         {
             return Ok(result.Value);

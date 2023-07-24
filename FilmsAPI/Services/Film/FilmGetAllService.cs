@@ -2,7 +2,7 @@
 using FilmsAPI.DTOs;
 using FilmsAPI.Interfaces.Services;
 
-namespace FilmsAPI.Services.Film;
+namespace FilmsAPI.Services;
 
 public class FilmGetAllService : IFilmGetAllService
 {

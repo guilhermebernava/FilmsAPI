@@ -8,7 +8,7 @@ using FilmsAPI.Models;
 
 namespace FilmsAPI.Services;
 
-public class FilmCreateWithActorAndGenre : IFilmCreateWithActorsAndGenresService
+public class FilmCreateWithActorAndGenreService : IFilmCreateWithActorsAndGenresService
 {
     private IFilmRepository _filmRepository { get; set; }
     private readonly IMapper _mapper;
@@ -16,7 +16,7 @@ public class FilmCreateWithActorAndGenre : IFilmCreateWithActorsAndGenresService
     private ActorValidation _actorValidator = new ActorValidation();
     private GenreValidation _genreValidator = new GenreValidation();
 
-    public FilmCreateWithActorAndGenre(IFilmRepository filmRepository, IMapper mapper)
+    public FilmCreateWithActorAndGenreService(IFilmRepository filmRepository, IMapper mapper)
     {
         _filmRepository = filmRepository;
         _mapper = mapper;
