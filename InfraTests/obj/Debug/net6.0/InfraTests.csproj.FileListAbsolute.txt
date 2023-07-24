@@ -21,15 +21,8 @@ C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
-C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
-C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
@@ -145,3 +138,6 @@ C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\obj\Debug\net6.0
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\obj\Debug\net6.0\InfraTests.pdb
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\obj\Debug\net6.0\InfraTests.genruntimeconfig.cache
 C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\obj\Debug\net6.0\ref\InfraTests.dll
+C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\guilh\OneDrive\Documentos\Projects\FilmsAPI\InfraTests\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

@@ -10,8 +10,6 @@ public class FilmController : ControllerBase
 {
     private readonly IServiceLocator _serviceLocator;
 
-    //TODO: Terminar de criar os serviços para o ENDPOINT
-
     public FilmController(IServiceLocator serviceLocator)
     {
         _serviceLocator = serviceLocator;
