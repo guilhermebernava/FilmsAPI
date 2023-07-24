@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities;
+﻿using System.Text.Json.Serialization;
+
+namespace Domain.Entities;
 
 public class Genre : Entity
 {
@@ -8,5 +10,6 @@ public class Genre : Entity
     }
 
     public string Name { get; set; }
+    [JsonIgnore]
     public ICollection<FilmGenre> FilmGenres { get; private set; }
 }
