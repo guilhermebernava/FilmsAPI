@@ -568,7 +568,8 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
-          "FluentValidation": "11.6.0"
+          "FluentValidation": "11.6.0",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.20"
         },
         "runtime": {
           "Domain.dll": {}
