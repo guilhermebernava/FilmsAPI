@@ -2,6 +2,6 @@
 
 namespace FilmsAPI.Interfaces.Services;
 
-public interface IFilmUpdateService : IService<FilmUpdateViewModel>
+public interface IFilmUpdateService : IService<FilmUpdateModel>
 {
 }

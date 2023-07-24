@@ -16,7 +16,7 @@ public class FilmController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddAsync([FromBody] FilmViewModel viewModel)
+    public async Task<IActionResult> AddAsync([FromBody] FilmModel viewModel)
     {
         var service = _serviceLocator.GetService<IFilmCreateService>();
         var result = await service.Execute(viewModel);
@@ -31,7 +31,7 @@ public class FilmController : ControllerBase
 
     [HttpPost]
     [Route("AddWithActorsAndGenres")]
-    public async Task<IActionResult> AddWithActorsAndGenresAsync([FromBody] FilmWithActorsAndGenresViewModel viewModel)
+    public async Task<IActionResult> AddWithActorsAndGenresAsync([FromBody] FilmWithActorsAndGenresModel viewModel)
     {
         var service = _serviceLocator.GetService<IFilmCreateWithActorsAndGenresService>();
         var result = await service.Execute(viewModel);
@@ -53,7 +53,7 @@ public class FilmController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> Updatesync([FromBody] FilmUpdateViewModel viewModel)
+    public async Task<IActionResult> Updatesync([FromBody] FilmUpdateModel viewModel)
     {
         var service = _serviceLocator.GetService<IFilmUpdateService>();
         var result = await service.Execute(viewModel);

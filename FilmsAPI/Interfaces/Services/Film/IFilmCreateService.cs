@@ -2,6 +2,6 @@
 
 namespace FilmsAPI.Interfaces.Services;
 
-public interface IFilmCreateService : IService<FilmViewModel>
+public interface IFilmCreateService : IService<FilmModel>
 {
 }

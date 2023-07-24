@@ -1,7 +1,7 @@
 ﻿namespace FilmsAPI.Models;
-public class FilmViewModel
+public class FilmModel
 {
-    public FilmViewModel(string title, int duration, double score, string description, DateTime releaseDate)
+    public FilmModel(string title, int duration, double score, string description, DateTime releaseDate)
     {
         Title = title;
         Duration = duration;

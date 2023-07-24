@@ -20,7 +20,7 @@ public class FilmCreateService : IFilmCreateService
         _mapper = mapper;
     }
 
-    public async Task<ServiceResponseDto> Execute(FilmViewModel viewModel)
+    public async Task<ServiceResponseDto> Execute(FilmModel viewModel)
     {
         var film = _mapper.Map<Domain.Entities.Film>(viewModel);
         var validation = _filmValidator.Validate(film);

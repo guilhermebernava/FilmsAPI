@@ -1,8 +1,8 @@
 ﻿namespace FilmsAPI.Models;
 
-public class ActorViewModel
+public class ActorModel
 {
-    public ActorViewModel(string name, int age)
+    public ActorModel(string name, int age)
     {
         Name = name;
         Age = age;

@@ -1,10 +1,10 @@
 ﻿namespace FilmsAPI.Models;
 
-public class GenreViewModel
+public class GenreModel
 {
     public string Name { get; set; }
 
-    public GenreViewModel(string name)
+    public GenreModel(string name)
     {
         Name = name;
     }

@@ -23,7 +23,7 @@ public class FilmCreateWithActorAndGenre : IFilmCreateWithActorsAndGenresService
     }
 
 
-    public async Task<ServiceResponseDto> Execute(FilmWithActorsAndGenresViewModel viewModel)
+    public async Task<ServiceResponseDto> Execute(FilmWithActorsAndGenresModel viewModel)
     {
         var film = _mapper.Map<Domain.Entities.Film>(viewModel.FilmViewModel);
         var validation = _filmValidator.Validate(film);

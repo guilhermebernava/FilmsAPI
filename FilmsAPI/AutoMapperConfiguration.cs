@@ -8,8 +8,8 @@ public class AutoMapperConfiguration : Profile
 {
     public AutoMapperConfiguration()
     {
-        CreateMap<FilmViewModel, Film>();
-        CreateMap<ActorViewModel, Actor>();
-        CreateMap<GenreViewModel, Genre>();
+        CreateMap<FilmModel, Film>();
+        CreateMap<ActorModel, Actor>();
+        CreateMap<GenreModel, Genre>();
     }
 }
