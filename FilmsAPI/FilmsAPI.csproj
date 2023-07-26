@@ -22,11 +22,4 @@
     <ProjectReference Include="..\Infra\Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\Services\Actor\" />
-    <Folder Include="Interfaces\Services\Genre\" />
-    <Folder Include="Services\Actor\" />
-    <Folder Include="Services\Genre\" />
-  </ItemGroup>
-
 </Project>

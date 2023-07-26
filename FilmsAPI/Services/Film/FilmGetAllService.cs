@@ -14,7 +14,7 @@ public class FilmGetAllService : IFilmGetAllService
         _filmRepository = filmRepository;
     }
 
-    public async Task<ServiceResponseDto> Execute(FilmGetAllModel model)
+    public async Task<ServiceResponseDto> Execute(GetAllModel model)
     {
         var films = await _filmRepository.GetAllAsync(model.Take,model.Page);
         return new ServiceResponseDto(films);

@@ -37,7 +37,7 @@ public class FilmController : ControllerBase
     [Route("GetAll")]
     public async Task<IActionResult> GetAllAsync([FromServices] IFilmGetAllService service, [FromQuery] int take = 20, [FromQuery] int page = 1)
     {
-        var result = await service.Execute(new FilmGetAllModel(take, page));
+        var result = await service.Execute(new GetAllModel(take, page));
         return Ok(result.Value);
     }
 

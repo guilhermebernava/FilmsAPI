@@ -1,8 +1,8 @@
 ﻿namespace FilmsAPI.Models;
 
-public class FilmGetAllModel
+public class GetAllModel
 {
-    public FilmGetAllModel(int take, int page)
+    public GetAllModel(int take, int page)
     {
         Take = take;
         Page = page;
