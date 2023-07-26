@@ -8,7 +8,9 @@ public class AutoMapperConfiguration : Profile
 {
     public AutoMapperConfiguration()
     {
-        Initialize();
+        CreateMap<FilmModel, Film>();
+        CreateMap<ActorModel, Actor>();
+        CreateMap<GenreModel, Genre>();
     }
 
     public static IMapper Initialize()

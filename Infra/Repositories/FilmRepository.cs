@@ -16,10 +16,10 @@ public class FilmRepository : Repository<Film>, IFilmRepository
     {
         try
         {
-            await dbSet.AddAsync(film);
+            await DbSet.AddAsync(film);
             await SaveAsync();
 
-            var filmEntity = await dbSet.FirstOrDefaultAsync(_ => _.Title == film.Title);
+            var filmEntity = await DbSet.FirstOrDefaultAsync(_ => _.Title == film.Title);
 
             if (filmEntity == null)
             {
@@ -41,7 +41,7 @@ public class FilmRepository : Repository<Film>, IFilmRepository
     {
         try
         {
-            var films = await dbSet.Include(_ => _.FilmActors).ThenInclude(_ => _.Actor).Where( _ => _.FilmActors.Any( _=> _.Actor.Name.ToUpper() == actorName.ToUpper())).ToListAsync();
+            var films = await DbSet.Include(_ => _.FilmActors).ThenInclude(_ => _.Actor).Where( _ => _.FilmActors.Any( _=> _.Actor.Name.ToUpper() == actorName.ToUpper())).ToListAsync();
             return films;
         }
         catch (Exception ex)
@@ -54,7 +54,7 @@ public class FilmRepository : Repository<Film>, IFilmRepository
     {
         try
         {
-            var films = await dbSet.Include(_ => _.FilmGenres).ThenInclude(_ => _.Genre).Where(_ => _.FilmGenres.Any(_ => _.Genre.Name.ToUpper() == genre.ToUpper())).ToListAsync();
+            var films = await DbSet.Include(_ => _.FilmGenres).ThenInclude(_ => _.Genre).Where(_ => _.FilmGenres.Any(_ => _.Genre.Name.ToUpper() == genre.ToUpper())).ToListAsync();
             return films;
         }
         catch (Exception ex)
@@ -67,7 +67,7 @@ public class FilmRepository : Repository<Film>, IFilmRepository
     {
         try
         {
-            var film = await dbSet.Include(_ => _.FilmActors).ThenInclude(_ => _.Actor).Include(_=> _.FilmGenres).ThenInclude(_ => _.Genre).Where(_ => _.Title.ToUpper() == filmName.ToUpper()).FirstOrDefaultAsync();
+            var film = await DbSet.Include(_ => _.FilmActors).ThenInclude(_ => _.Actor).Include(_=> _.FilmGenres).ThenInclude(_ => _.Genre).Where(_ => _.Title.ToUpper() == filmName.ToUpper()).FirstOrDefaultAsync();
 
             if(film == null)
             {
@@ -86,7 +86,7 @@ public class FilmRepository : Repository<Film>, IFilmRepository
     {
         try
         {
-            var films = await dbSet.Include(_ => _.FilmActors).ThenInclude(_ => _.Actor).Include(_ => _.FilmGenres).ThenInclude(_ => _.Genre).ToListAsync();
+            var films = await DbSet.Include(_ => _.FilmActors).ThenInclude(_ => _.Actor).Include(_ => _.FilmGenres).ThenInclude(_ => _.Genre).ToListAsync();
             return films;
         }
         catch (Exception ex)

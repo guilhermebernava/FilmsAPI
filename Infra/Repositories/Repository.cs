@@ -9,12 +9,12 @@ namespace Infra.Repositories
     public class Repository<T> : IRepository<T> where T : Entity
     {
         public ApplicationDbContext _dbContext;
-        public DbSet<T> dbSet { get; private set; }
+        public DbSet<T> DbSet { get; private set; }
 
         public Repository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
-            dbSet = _dbContext.Set<T>();
+            DbSet = _dbContext.Set<T>();
         }
 
 
@@ -22,7 +22,7 @@ namespace Infra.Repositories
         {
             try
             {
-                await dbSet.AddAsync(entity);
+                await DbSet.AddAsync(entity);
                 return await SaveAsync();
             }
             catch (Exception ex)
@@ -35,7 +35,7 @@ namespace Infra.Repositories
         {
             try
             {
-                dbSet.Remove(entity);
+                DbSet.Remove(entity);
                 return await SaveAsync();
             }
             catch (Exception ex)
@@ -49,7 +49,7 @@ namespace Infra.Repositories
             try
             {
                 var entity = await GetByIdAsync(id);
-                dbSet.Remove(entity);
+                DbSet.Remove(entity);
                 return await SaveAsync();
             }
             catch (Exception ex)
@@ -58,11 +58,11 @@ namespace Infra.Repositories
             }
         }
 
-        public async Task<IList<T>> GetAllAsync()
+        public async Task<IList<T>> GetAllAsync(int take = 20, int page = 1)
         {
             try
             {
-                return await dbSet.ToListAsync();
+                return await DbSet.Skip((page - 1) * take ).Take(take).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -74,14 +74,9 @@ namespace Infra.Repositories
         {
             try
             {
-                var entity = await dbSet.FirstOrDefaultAsync(_ => _.Id == id);
+                var entity = await DbSet.FirstOrDefaultAsync(_ => _.Id == id);
 
-                if (entity == null)
-                {
-                    throw new NotFoundException($"Not found this {dbSet.GetType()}");
-                }
-
-                return entity;
+                return entity ?? throw new NotFoundException($"Not found this {DbSet.GetType()}");
             }
             catch (Exception ex)
             {
@@ -91,7 +86,7 @@ namespace Infra.Repositories
 
         public async Task<bool> SaveAsync()
         {
-            var saved = await _dbContext.SaveChangesAsync() == 1 ? true : false;
+            var saved = await _dbContext.SaveChangesAsync() == 1;
             return saved;
         }
 
@@ -99,7 +94,7 @@ namespace Infra.Repositories
         {
             try
             {
-                dbSet.Update(entity);
+                DbSet.Update(entity);
                 return await SaveAsync();
             }
             catch (Exception ex)

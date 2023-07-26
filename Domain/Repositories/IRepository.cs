@@ -10,5 +10,5 @@ public interface IRepository<T> where T : Entity
     public Task<bool> DeleteAsync(T entity);
     public Task<bool> DeleteByIdAsync(int id);
     public Task<T> GetByIdAsync(int id);
-    public Task<IList<T>> GetAllAsync();   
+    public Task<IList<T>> GetAllAsync(int take = 20, int page = 1);   
 }

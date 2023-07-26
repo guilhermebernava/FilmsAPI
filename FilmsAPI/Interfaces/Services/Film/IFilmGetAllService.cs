@@ -1,5 +1,8 @@
-﻿namespace FilmsAPI.Interfaces.Services;
+﻿using FilmsAPI.DTOs;
+using FilmsAPI.Models;
 
-public interface IFilmGetAllService : IService
+namespace FilmsAPI.Interfaces.Services;
+
+public interface IFilmGetAllService : IService<FilmGetAllModel>
 {
 }

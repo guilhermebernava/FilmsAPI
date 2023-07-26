@@ -2,12 +2,12 @@
 
 public class FilmUpdateModel
 {
-    public FilmUpdateModel(FilmModel filmViewModel, int filmId)
+    public FilmUpdateModel(FilmModel filmModel, int filmId)
     {
-        FilmViewModel = filmViewModel;
+        FilmModel = filmModel;
         FilmId = filmId;
     }
 
-    public FilmModel FilmViewModel { get; private set; }
+    public FilmModel FilmModel { get; private set; }
     public int   FilmId { get; private set; }
 }

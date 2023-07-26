@@ -15,7 +15,7 @@ public class FilmController : ControllerBase
         var result = await service.Execute(viewModel);
         if (result.IsValid)
         {
-            return Ok();
+            return Created(nameof(GetAllAsync), viewModel);
 
         }
         return BadRequest(result.Errors);
@@ -28,16 +28,16 @@ public class FilmController : ControllerBase
         var result = await service.Execute(viewModel);
         if (result.IsValid)
         {
-            return Ok();
+            return Created(nameof(GetAllWithActorsAndGenresAsync), viewModel);
         }
         return BadRequest(result.Errors);
     }
 
     [HttpGet]
     [Route("GetAll")]
-    public async Task<IActionResult> GetAllAsync([FromServices] IFilmGetAllService service)
+    public async Task<IActionResult> GetAllAsync([FromServices] IFilmGetAllService service, [FromQuery] int take = 20, [FromQuery] int page = 1)
     {
-        var result = await service.Execute();
+        var result = await service.Execute(new FilmGetAllModel(take, page));
         return Ok(result.Value);
     }
 
@@ -47,7 +47,7 @@ public class FilmController : ControllerBase
         var result = await service.Execute(viewModel);
         if(result.IsValid)
         {
-            return Ok();
+            return NoContent();
         }
         return BadRequest(result.Errors);
     }

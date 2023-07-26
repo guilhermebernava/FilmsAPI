@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Domain.Entities;
 using Domain.Repositories;
 using Domain.Validations;
 using FilmsAPI.DTOs;
@@ -10,19 +11,19 @@ namespace FilmsAPI.Services;
 public class FilmUpdateService : IFilmUpdateService
 {
 
-    private IFilmRepository _filmRepository { get; set; }
+    private IFilmRepository FilmRepository { get; set; }
     private readonly IMapper _mapper;
-    private FilmValidation _filmValidator = new FilmValidation();
+    private readonly FilmValidation _filmValidator = new();
 
     public FilmUpdateService(IFilmRepository filmRepository, IMapper mapper)
     {
-        _filmRepository = filmRepository;
+        FilmRepository = filmRepository;
         _mapper = mapper;
     }
 
     public async Task<ServiceResponseDto> Execute(FilmUpdateModel viewModel)
     {
-        var film = _mapper.Map<Domain.Entities.Film>(viewModel.FilmViewModel);
+        var film = _mapper.Map<Film>(viewModel.FilmModel);
         var validation = _filmValidator.Validate(film);
 
         if (!validation.IsValid)
@@ -31,14 +32,9 @@ public class FilmUpdateService : IFilmUpdateService
             return new ServiceResponseDto(strings);
         }
 
-        var filmEntity = await _filmRepository.GetByIdAsync(viewModel.FilmId);
-        filmEntity.Duration = film.Duration;
-        filmEntity.Title = film.Title;
-        filmEntity.Description = film.Description;
-        filmEntity.ReleaseDate = film.ReleaseDate;
-        filmEntity.Score = film.Score;
-
-        var result = await _filmRepository.UpdateAsync(filmEntity);
+        var filmEntity = await FilmRepository.GetByIdAsync(viewModel.FilmId);
+        _mapper.Map(viewModel.FilmModel, filmEntity);
+        var result = await FilmRepository.UpdateAsync(filmEntity);
 
         if (!result)
         {
