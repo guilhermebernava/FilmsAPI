@@ -3,7 +3,7 @@ using Infra.Context;
 using Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace FilmsAPITests.Services;
+namespace FilmsAPITests.Services.Films;
 
 public class FilmGetWithActorAndGenreServiceTest
 {

@@ -7,7 +7,7 @@ using Infra.Context;
 using Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace FilmsAPITests.Services;
+namespace FilmsAPITests.Services.Films;
 
 public class FilmUpdateServiceTest
 {
@@ -19,7 +19,7 @@ public class FilmUpdateServiceTest
     public async Task ItShouldUpdateFilm()
     {
         await Repository.AddAsync(new Film("Teste", 90, 7.0, "Description", DateTime.Now));
-        var result = await FilmUpdateService.Execute(new FilmUpdateModel(new FilmModel("Test",90,7.0,"description",DateTime.Now),1));
+        var result = await FilmUpdateService.Execute(new FilmUpdateModel(new FilmModel("Test", 90, 7.0, "description", DateTime.Now), 1));
         Assert.True(result.IsValid);
     }
 }

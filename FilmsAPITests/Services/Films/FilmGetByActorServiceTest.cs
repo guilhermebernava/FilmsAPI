@@ -7,7 +7,7 @@ using Infra.Context;
 using Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace FilmsAPITests.Services;
+namespace FilmsAPITests.Services.Films;
 
 public class FilmGetByActorServiceTest
 {
@@ -21,7 +21,7 @@ public class FilmGetByActorServiceTest
     public async Task ItShouldGetByActorFilm()
     {
         await ActorRepository.AddAsync(new Actor("Guilherme", 10));
-        await FilmCreateService.Execute(new FilmWithActorsAndGenresModel(new FilmModel("Test", 90, 7.0, "description", DateTime.Now), new List<ActorModel>() {new ActorModel("Guilherme", 10) }, new List<GenreModel>()));
+        await FilmCreateService.Execute(new FilmWithActorsAndGenresModel(new FilmModel("Test", 90, 7.0, "description", DateTime.Now), new List<ActorModel>() { new ActorModel("Guilherme", 10) }, new List<GenreModel>()));
         var result = await FilmGetByActorService.Execute("Guilherme");
         Assert.True(result.IsValid);
     }

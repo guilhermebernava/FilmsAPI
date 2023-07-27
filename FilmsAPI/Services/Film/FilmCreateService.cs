@@ -10,19 +10,19 @@ namespace FilmsAPI.Services;
 
 public class FilmCreateService : IFilmCreateService
 {
-    private IFilmRepository _filmRepository { get; set; }
+    private IFilmRepository FilmRepository { get; set; }
     private readonly IMapper _mapper;
-    private FilmValidation _filmValidator = new FilmValidation();
+    private readonly FilmValidation _filmValidator = new();
 
     public FilmCreateService(IFilmRepository filmRepository, IMapper mapper)
     {
-        _filmRepository = filmRepository;
+        FilmRepository = filmRepository;
         _mapper = mapper;
     }
 
     public async Task<ServiceResponseDto> Execute(FilmModel viewModel)
     {
-        var film = _mapper.Map<Domain.Entities.Film>(viewModel);
+        var film = _mapper.Map<Film>(viewModel);
         var validation = _filmValidator.Validate(film);
 
         if (!validation.IsValid)
@@ -31,7 +31,7 @@ public class FilmCreateService : IFilmCreateService
             return new ServiceResponseDto(strings);
         }
 
-        var result = await _filmRepository.AddAsync(film);
+        var result = await FilmRepository.AddAsync(film);
 
         if (!result)
         {

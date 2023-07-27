@@ -1,4 +1,5 @@
-﻿using FilmsAPI.DTOs;
+﻿using Domain.Repositories;
+using FilmsAPI.DTOs;
 using FilmsAPI.Interfaces.Services;
 using FilmsAPI.Models;
 
@@ -6,8 +7,16 @@ namespace FilmsAPI.Services;
 
 public class GenreGetAllService : IGenreGetAllService
 {
-    public Task<ServiceResponseDto> Execute(GetAllModel viewModel)
+    private readonly IGenreRepository _genreRepository;
+
+    public GenreGetAllService(IGenreRepository genreRepository)
     {
-        throw new NotImplementedException();
+        _genreRepository = genreRepository;
+    }
+
+    public async Task<ServiceResponseDto> Execute(GetAllModel model)
+    {
+        var result = await _genreRepository.GetAllAsync(model.Take, model.Page);
+        return new ServiceResponseDto(result);
     }
 }

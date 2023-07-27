@@ -1,13 +1,21 @@
-﻿using FilmsAPI.DTOs;
+﻿using Domain.Repositories;
+using FilmsAPI.DTOs;
 using FilmsAPI.Interfaces.Services;
-using FilmsAPI.Models;
 
 namespace FilmsAPI.Services;
 
 public class GenreDeleteService : IGenreDeleteService
 {
-    public Task<ServiceResponseDto> Execute(int viewModel)
+    private readonly IGenreRepository _genreRepository;
+
+    public GenreDeleteService(IGenreRepository genreRepository)
     {
-        throw new NotImplementedException();
+        _genreRepository = genreRepository;
+    }
+
+    public async Task<ServiceResponseDto> Execute(int id)
+    {
+        await _genreRepository.DeleteByIdAsync(id);
+        return new ServiceResponseDto(true);
     }
 }

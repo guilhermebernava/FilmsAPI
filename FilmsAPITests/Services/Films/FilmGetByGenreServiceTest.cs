@@ -7,7 +7,7 @@ using Infra.Context;
 using Infra.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace FilmsAPITests.Services;
+namespace FilmsAPITests.Services.Films;
 
 public class FilmGetByGenreServiceTest
 {
@@ -21,7 +21,7 @@ public class FilmGetByGenreServiceTest
     public async Task ItShouldGetByGenreFilm()
     {
         await GenreRepository.AddAsync(new Genre("Guilherme"));
-        await FilmCreateService.Execute(new FilmWithActorsAndGenresModel(new FilmModel("Test", 90, 7.0, "description", DateTime.Now), new List<ActorModel>(), new List<GenreModel>() { new GenreModel("Guilherme")}));
+        await FilmCreateService.Execute(new FilmWithActorsAndGenresModel(new FilmModel("Test", 90, 7.0, "description", DateTime.Now), new List<ActorModel>(), new List<GenreModel>() { new GenreModel("Guilherme") }));
         var result = await FilmGetByGenreService.Execute("Guilherme");
         Assert.True(result.IsValid);
     }
