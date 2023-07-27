@@ -76,7 +76,12 @@ namespace Infra.Repositories
             {
                 var entity = await DbSet.FirstOrDefaultAsync(_ => _.Id == id);
 
-                return entity ?? throw new NotFoundException($"Not found this {DbSet.GetType()}");
+                if(entity == null)
+                {
+                    throw new NotFoundException($"Not found this {DbSet.GetType()}");
+                }
+
+                return entity;
             }
             catch (Exception ex)
             {

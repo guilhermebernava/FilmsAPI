@@ -13,7 +13,7 @@ public static class TokenService
         //está definindo o que vai ter dentro do PAYLOAD do JWT
         var claims = new List<Claim>()
         {
-            new Claim("Email", user.Email),
+            new Claim(ClaimTypes.Email, user.Email),
             new Claim("Id", user.Id),
             new Claim("TwoFactorEnabled", user.TwoFactorEnabled.ToString())
         };

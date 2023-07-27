@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using FilmsAPI.Auth;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -23,8 +24,25 @@ public static class JwtInector
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("72jasdnSADAS934hsaluif-056**/5540++54")),
                 ValidateAudience = false,
                 ValidateIssuer = false,
+                
                 ClockSkew = TimeSpan.Zero
             };
+        });
+
+        services.AddSingleton<IAuthorizationHandler, AdminEmailAuthorization>();
+
+        //Adiciona a POLICY de autorazição e autenticação
+        services.AddAuthorization(options =>
+        {
+            var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
+                 JwtBearerDefaults.AuthenticationScheme);
+
+            defaultAuthorizationPolicyBuilder =
+                defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
+
+            options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
+
+            options.AddPolicy("EmailAdmin", policy => policy.AddRequirements(new AdminEmail("a@a.com"))) ;
         });
     }
 }
