@@ -21,7 +21,7 @@ public class GenreUpdateServiceTest
         var result = await GenreCreateService.Execute(new GenreModel("Test"));
         Assert.True(result.IsValid);
 
-        result = await GenreUpdateService.Execute(new GenreUpdateModel( 1,"Testing"));
+        result = await GenreUpdateService.Execute(new GenreUpdateModel( 1,new GenreModel("Testing")));
         Assert.True(result.IsValid);
     }
 }

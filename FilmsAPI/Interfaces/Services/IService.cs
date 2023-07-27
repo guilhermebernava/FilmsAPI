@@ -4,7 +4,7 @@ namespace FilmsAPI.Interfaces.Services;
 
 public interface IService<T>
 {
-    public Task<ServiceResponseDto> Execute(T viewModel);
+    public Task<ServiceResponseDto> Execute(T data);
 }
 
 public interface IService

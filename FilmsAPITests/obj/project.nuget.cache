@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HkUpUlnGfmVN3iBQ1mQFVz3hu6sqnnAuqmHJ2+aZjMOy/E2tsQ3BeKz2saO66Rq0OzHly0qQEbe6LIIsi4q0wQ==",
+  "dgSpecHash": "htC/o9TZNJg2c+0uy8S9UkjkcBc4nCh6jZQ7POLCenyCo91YMjNf0T2qDoFZc6l4ElAb+XrJIdDFP/Lz1YTsjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\guilh\\OneDrive\\Documentos\\Projects\\FilmsAPI\\FilmsAPITests\\FilmsAPITests.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "C:\\Users\\guilh\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\fluentvalidation\\11.6.0\\fluentvalidation.11.6.0.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.20\\microsoft.aspnetcore.cryptography.internal.6.0.20.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.20\\microsoft.aspnetcore.cryptography.keyderivation.6.0.20.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.20\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.20.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.20\\microsoft.aspnetcore.jsonpatch.6.0.20.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.20\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.20.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
@@ -26,6 +29,8 @@
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.20\\microsoft.extensions.identity.core.6.0.20.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.20\\microsoft.extensions.identity.stores.6.0.20.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",

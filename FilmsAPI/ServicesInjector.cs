@@ -27,5 +27,10 @@ public static class ServicesInector
         services.AddScoped<IGenreCreateService, GenreCreateService>();
         services.AddScoped<IGenreDeleteService, GenreDeleteService>();
         services.AddScoped<IGenreUpdateService, GenreUpdateService>();
+
+        services.AddScoped<IUserCreateService, UserCreateService>();
+        services.AddScoped<IUserDeleteService, UserDeleteService>();
+        services.AddScoped<IUserUpdateService, UserUpdateService>();
+        services.AddScoped<IUserLoginService, UserLoginService>();
     }
 }

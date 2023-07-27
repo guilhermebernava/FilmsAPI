@@ -11,5 +11,5 @@ public class Genre : Entity
 
     public string Name { get; set; }
     [JsonIgnore]
-    public ICollection<FilmGenre> FilmGenres { get; private set; }
+    public virtual ICollection<FilmGenre> FilmGenres { get; private set; }
 }

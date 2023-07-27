@@ -1,4 +1,6 @@
-﻿using Infra.Context;
+﻿using Domain.Entities;
+using Infra.Context;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,5 +14,7 @@ public static class DbContextInjector
         {
             options.UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
         }, ServiceLifetime.Singleton);
+
+        services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
     }
 }

@@ -16,6 +16,6 @@ public class Film : Entity
     public double Score { get; set; }
     public string Description { get; set; }
     public DateTime ReleaseDate { get; set; }
-    public ICollection<FilmActor> FilmActors { get; private set; }
-    public ICollection<FilmGenre> FilmGenres { get; private set; }
+    public virtual ICollection<FilmActor> FilmActors { get; private set; }
+    public virtual ICollection<FilmGenre> FilmGenres { get; private set; }
 }

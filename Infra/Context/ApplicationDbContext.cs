@@ -1,10 +1,11 @@
 ﻿using Domain.Entities;
 using Infra.Context.Configurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infra.Context
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public DbSet<Actor> Actors;
         public DbSet<Film> Films;
@@ -23,6 +24,7 @@ namespace Infra.Context
             modelBuilder.ApplyConfiguration(new FilmActorConfiguration());
             modelBuilder.ApplyConfiguration(new FilmGenreConfiguration());
             modelBuilder.ApplyConfiguration(new GenreConfiguration());
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

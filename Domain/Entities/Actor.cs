@@ -13,5 +13,5 @@ public class Actor : Entity
     public string Name { get; set; }
     public int Age { get; set; }
     [JsonIgnore]
-    public ICollection<FilmActor> FilmActors { get; private set; }
+    public virtual ICollection<FilmActor> FilmActors { get; private set; }
 }
