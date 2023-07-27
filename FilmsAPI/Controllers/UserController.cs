@@ -1,5 +1,6 @@
 ﻿using FilmsAPI.Interfaces.Services;
 using FilmsAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmsAPI.Controllers;
@@ -35,6 +36,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize]
     public async Task<IActionResult> UpdateAsync([FromServices] IUserUpdateService service, [FromBody] UserPasswordModel viewModel)
     {
         var result = await service.Execute(viewModel);
@@ -47,6 +49,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete]
+    [Authorize]
     public async Task<IActionResult> DeleteAsync([FromServices] IUserDeleteService service, [FromQuery] string id)
     {
         var result = await service.Execute(id);

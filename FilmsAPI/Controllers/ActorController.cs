@@ -1,5 +1,6 @@
 ﻿using FilmsAPI.Interfaces.Services;
 using FilmsAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmsAPI.Controllers;
@@ -10,6 +11,7 @@ public class ActorController : ControllerBase
 {
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> AddAsync([FromServices] IActorCreateService service, [FromBody] ActorModel viewModel)
     {
         var result = await service.Execute(viewModel);
@@ -22,6 +24,7 @@ public class ActorController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize]
     public async Task<IActionResult> UpdateAsync([FromServices] IActorUpdateService service, [FromBody] ActorUpdateModel viewModel)
     {
         var result = await service.Execute(viewModel);
@@ -35,6 +38,7 @@ public class ActorController : ControllerBase
 
     [HttpGet]
     [Route("GetById")]
+    [Authorize]
     public async Task<IActionResult> GetByIdAsync([FromServices] IActorGetByIdService service, [FromQuery] int id)
     {
         var result = await service.Execute(id);
@@ -46,6 +50,7 @@ public class ActorController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> GetAllAsync([FromServices] IActorGetAllService service, [FromQuery] int take = 20, int page = 1)
     {
         var result = await service.Execute(new GetAllModel(take,page));
@@ -58,6 +63,7 @@ public class ActorController : ControllerBase
     }
 
     [HttpDelete]
+    [Authorize]
     public async Task<IActionResult> DeleteAsync([FromServices] IActorDeleteService service, [FromQuery] int id)
     {
         var result = await service.Execute(id);

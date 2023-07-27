@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sI1LLfjpj9uqMjdgYuNMg7tOClJjhHArqLhJcEthqHSMswewTB7+uyOEjcDfBy0GZxlxv09+j4rm8YTciNDFsA==",
+  "dgSpecHash": "2FKlF33WSthJVQ64qwT6Ca5Mi3oGJJSXovzBYsOLW9uzSYR8lE+4t298G1g3uqdT42khHJ0jGPO0YhI/JbSw1g==",
   "success": true,
   "projectFilePath": "C:\\Users\\guilh\\OneDrive\\Documentos\\Projects\\FilmsAPI\\FilmsAPI\\FilmsAPI.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\guilh\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\fluentvalidation\\11.6.0\\fluentvalidation.11.6.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.20\\microsoft.aspnetcore.authentication.jwtbearer.6.0.20.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.20\\microsoft.aspnetcore.cryptography.internal.6.0.20.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.20\\microsoft.aspnetcore.cryptography.keyderivation.6.0.20.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.20\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.20.nupkg.sha512",
@@ -38,8 +39,8 @@
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.32.0\\microsoft.identitymodel.abstractions.6.32.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.32.0\\microsoft.identitymodel.jsonwebtokens.6.32.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.logging\\6.32.0\\microsoft.identitymodel.logging.6.32.0.nupkg.sha512",
-    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.8.0\\microsoft.identitymodel.protocols.6.8.0.nupkg.sha512",
-    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.8.0\\microsoft.identitymodel.protocols.openidconnect.6.8.0.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.32.0\\microsoft.identitymodel.tokens.6.32.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
