@@ -28,7 +28,7 @@ public class UserController : ControllerBase
         var result = await service.Execute(viewModel);
         if (result.IsValid)
         {
-            return Created("", viewModel);
+            return Ok(result.Value);
 
         }
         return BadRequest(result.Errors);

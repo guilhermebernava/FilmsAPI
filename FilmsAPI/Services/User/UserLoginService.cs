@@ -27,7 +27,7 @@ public class UserLoginService : IUserLoginService
         {
             throw new ServicesException("Email or Password is incorrect");
         }
-
-        return new ServiceResponseDto("JWT");
+        var token = TokenService.GenerateToken(user);
+        return new ServiceResponseDto(token);
     }
 }
