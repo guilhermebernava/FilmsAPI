@@ -23,7 +23,7 @@ public class GenreUpdateService : IGenreUpdateService
 
     public async Task<ServiceResponseDto> Execute(GenreUpdateModel viewModel)
     {
-        var genre = new Genre(viewModel.Name);
+        var genre = _mapper.Map<Genre>(viewModel.GenreModel);
         var validation = _validator.Validate(genre);
 
         if (!validation.IsValid)
@@ -33,12 +33,12 @@ public class GenreUpdateService : IGenreUpdateService
         }
 
         var entity = await _genreRepository.GetByIdAsync(viewModel.Id);
-        _mapper.Map(genre, entity);
+        _mapper.Map(viewModel.GenreModel, entity);
         var result = await _genreRepository.UpdateAsync(entity);
 
         if (!result)
         {
-            return new ServiceResponseDto(new List<string>() { "Error in update GENRE in Database" });
+            return new ServiceResponseDto(new List<string>() { "Error in update ACTOR in Database" });
         }
         return new ServiceResponseDto(true);
 

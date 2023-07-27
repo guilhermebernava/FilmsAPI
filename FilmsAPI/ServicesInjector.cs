@@ -15,5 +15,17 @@ public static class ServicesInector
         services.AddScoped<IFilmCreateWithActorsAndGenresService, FilmCreateWithActorAndGenreService>();
         services.AddScoped<IFilmUpdateService, FilmUpdateService>();
         services.AddScoped<IFilmGetAllService, FilmGetAllService>();
+
+        services.AddScoped<IActorGetAllService, ActorGetAllService>();
+        services.AddScoped<IActorGetByIdService, ActorGetByIdService>();
+        services.AddScoped<IActorCreateService, ActorCreateService>();
+        services.AddScoped<IActorDeleteService, ActorDeleteService>();
+        services.AddScoped<IActorUpdateService, ActorUpdateService>();
+
+        services.AddScoped<IGenreGetAllService, GenreGetAllService>();
+        services.AddScoped<IGenreGetByIdService, GenreGetByIdService>();
+        services.AddScoped<IGenreCreateService, GenreCreateService>();
+        services.AddScoped<IGenreDeleteService, GenreDeleteService>();
+        services.AddScoped<IGenreUpdateService, GenreUpdateService>();
     }
 }

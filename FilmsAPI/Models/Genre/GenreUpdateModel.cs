@@ -2,12 +2,12 @@
 
 public class GenreUpdateModel
 {
-    public GenreUpdateModel(int id, string name)
+    public GenreUpdateModel(int id, GenreModel genreModel)
     {
         Id = id;
-        Name = name;
+        GenreModel = genreModel;
     }
 
     public int Id { get; set; }
-    public string Name { get; set; }
+    public GenreModel GenreModel { get; set; }
 }
