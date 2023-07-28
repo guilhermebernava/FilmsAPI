@@ -8,7 +8,7 @@ namespace FilmsAPI.Services;
 
 public static class TokenService
 {
-    public static string GenerateToken(User user)
+    public static string GenerateToken(IConfiguration configuration,User user)
     {
         //está definindo o que vai ter dentro do PAYLOAD do JWT
         var claims = new List<Claim>()
@@ -19,7 +19,7 @@ public static class TokenService
         };
 
         //está criando uma chave para ser adicionada na SIGNGIN 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("72jasdnSADAS934hsaluif-056**/5540++54"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
 
         //vai ser a forma que nosso JWT vai ser validado
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

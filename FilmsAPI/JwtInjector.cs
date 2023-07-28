@@ -1,5 +1,4 @@
-﻿using FilmsAPI.Auth;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -8,7 +7,7 @@ namespace FilmsAPI;
 
 public static class JwtInector
 {
-    public static void AddJwt(this IServiceCollection services)
+    public static void AddJwt(this IServiceCollection services,WebApplicationBuilder builder)
     {
         services.AddAuthentication(options =>
         {
@@ -21,17 +20,13 @@ public static class JwtInector
             options.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("72jasdnSADAS934hsaluif-056**/5540++54")),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
                 ValidateAudience = false,
                 ValidateIssuer = false,
-                
                 ClockSkew = TimeSpan.Zero
             };
         });
 
-        services.AddSingleton<IAuthorizationHandler, AdminEmailAuthorization>();
-
-        //Adiciona a POLICY de autorazição e autenticação
         services.AddAuthorization(options =>
         {
             var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
@@ -41,8 +36,6 @@ public static class JwtInector
                 defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
 
             options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
-
-            options.AddPolicy("EmailAdmin", policy => policy.AddRequirements(new AdminEmail("a@a.com"))) ;
         });
     }
 }

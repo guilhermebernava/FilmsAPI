@@ -11,11 +11,13 @@ public class UserLoginService : IUserLoginService
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
+    private readonly IConfiguration _configuration;
 
-    public UserLoginService(UserManager<User> userManager, SignInManager<User> signInManager)
+    public UserLoginService(UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration configuration)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _configuration = configuration;
     }
 
     public async Task<ServiceResponseDto> Execute(UserModel data)
@@ -27,7 +29,7 @@ public class UserLoginService : IUserLoginService
         {
             throw new ServicesException("Email or Password is incorrect");
         }
-        var token = TokenService.GenerateToken(user);
+        var token = TokenService.GenerateToken(_configuration,user);
         return new ServiceResponseDto(token);
     }
 }

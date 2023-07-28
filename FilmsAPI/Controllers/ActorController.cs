@@ -50,7 +50,7 @@ public class ActorController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Policy = "EmailAdmin")]
+    [Authorize]
     public async Task<IActionResult> GetAllAsync([FromServices] IActorGetAllService service, [FromQuery] int take = 20, int page = 1)
     {
         var result = await service.Execute(new GetAllModel(take,page));
