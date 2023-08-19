@@ -1,12 +1,9 @@
 <h1 align="center">🎞️ Films API 🎞️</h1>
-
-<div style="text-align: justify;">
-Criação de API para cadastro de informações de filmes em .NET 6.0 com o padrão MVC usando ASP.NET, autorização sendo feita por JWT, criação de middleware para verificação de execessões lançadas, 
-camada de acesso a dados usando o Entity Framework com Repository Pattern para comunicação com o banco de dados Postgresql. Utilização de Automapper para o mapeamento de Models para Entidades e 
-Fluent Validation para validar os dados das entidades, Swagger para consumo dos endpoints e documentação do projeto, Implementação de Testes Unitários.
+<div align="justify">
+Creation of an API for registering film information in .NET 6.0 using the MVC pattern with ASP.NET. Authorization is done using JWT. A middleware is implemented to handle thrown exceptions. Data access layer uses Entity Framework with the Repository Pattern for communication with the Postgresql database. AutoMapper is used for mapping Models to Entities, and Fluent Validation is used to validate entity data. Swagger is implemented for endpoint consumption and project documentation. Unit tests are also implemented.
 </div>
 
-🧪 Tecnologias Utilizadas 🧪
+## 🧪 Technologies Used 🧪
 
 * .NET 6.0
 * C#
@@ -15,8 +12,9 @@ Fluent Validation para validar os dados das entidades, Swagger para consumo dos 
 * Fluent Validation
 * ASP NET
 * Postgresql
+  
+## ⚙️ Design Patterns Used ⚙️
 
-⚙️ Design Pattern Utilizados ⚙️
 * Repository
 * Services
 * Clean Code
